@@ -8,7 +8,7 @@
 
         
         {
-            "name": "Python: train_A2C.py",
+            "name": "Python:train_A2C.py",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/train_A2C.py",
@@ -16,7 +16,7 @@
                 "-u",
                 "https://public-firing-range.appspot.com/",
                 "-t",
-                "2000"
+                "1000"
             ],
             "console": "integratedTerminal"
         }

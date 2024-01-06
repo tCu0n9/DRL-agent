@@ -248,10 +248,12 @@ class ReflectedXSSEnv(gym.Env):
 
                 if self.current_original_request.get_params != []:
                     self.request_list = list(filter(lambda a: ((a.url.split("?")[0] != self.current_original_request.url.split("?")[0]) or (Extract(a.get_params) != Extract(self.current_original_request.get_params) and Extract(a.post_params) != Extract(self.current_original_request.get_params))) ,self.request_list))
-                
-            currentRequest = self.request_list[self.request_list_index]
-            print(f"currentRequest: {currentRequest}")
-            return currentRequest
+            
+            if self.request_list:
+                currentRequest = self.request_list[self.request_list_index]
+                # print(f"currentRequest: {currentRequest}")
+                return currentRequest
+
 
 
         target_removed = False
