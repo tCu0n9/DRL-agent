@@ -1,0 +1,8 @@
+https://public-firing-range.appspot.com/reflected/parameter/body?q=a
+https://public-firing-range.appspot.com/reflected/parameter/head?q=a
+https://public-firing-range.appspot.com/reflected/parameter/title?q=ahttps://public-firing-range.appspot.com/reflected/parameter/body_comment?q=a
+https://public-firing-range.appspot.com/reflected/parameter/tagname?q=a
+https://public-firing-range.appspot.com/reflected/parameter/attribute_unquoted?q=a
+https://public-firing-range.appspot.com/reflected/parameter/attribute_singlequoted?q=a
+https://public-firing-range.appspot.com/reflected/parameter/attribute_quoted?q=a
+https://public-firing-range.appspot.com/reflected/parameter/attribute_name?q=a

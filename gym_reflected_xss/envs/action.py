@@ -28,7 +28,6 @@ MUTATE_PREFIX_STRING_VALUE = 18
 PREFIX_ENTER = 19
 INSERT_EFFECTIVE_TAG = 20
 
-
 # Suffix
 MUTATE_SUFFIX_HTML_COMMENT = 21
 MUTATE_SUFFIX_SINGLE_QUOTATION = 22
@@ -57,4 +56,4 @@ WHITE_SPACE_TO_SLASH = 36 # <img/src='x'/onerror='alert(1)'/>
 MUTATE_QUOTATION_TO_BACK_TICK = 37 # <img src=x onerror=alert`1` />
 MUTATE_PARENTHESIS_TO_BACK_TICK = 38 # <script>alert`1`</script>
 
-#BASE64_ENCODING = 29 # data:text/html;base64,PHNjcmlwdD5hbGVydCgiWFNTIik8L3NjcmlwdD4=
+

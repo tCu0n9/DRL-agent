@@ -28,7 +28,7 @@ from types import GeneratorType, FunctionType
 from binascii import hexlify
 
 from requests.exceptions import RequestException, ReadTimeout
-
+#gym_reflected_xss\attack_module\net\web.py
 from gym_reflected_xss.attack_module.net.web import Request
 
 from pyjsparser import parse

@@ -21,9 +21,9 @@ from gym_reflected_xss.attack_module.net.web import Request
 from gym_reflected_xss.attack_module.net.sqlite_persister import SqlitePersister
 from gym_reflected_xss.attack_module.attack import attack
 from gym_reflected_xss.attack_module.attack.attack import Attack
-# from gym_reflected_xss.attack_module.language.language import _
+from gym_reflected_xss.attack_module.language.language import _
 
-WAPITI_VERSION = "Wapiti 3.0.3"
+WAPITI_VERSION = "Wapiti 3.1.5"
 SCAN_FORCE_VALUES = {
     "paranoid": 1,
     "sneaky": 0.7,
@@ -42,9 +42,9 @@ class InvalidOptionValue(Exception):
         return ("Invalid argument for option {0} : {1}").format(self.opt_name, self.opt_value)
 
 class AttackModule():
-    # REPORT_DIR = "report"
-    #HOME_DIR = os.getenv("HOME") or os.getenv("USERPROFILE")
-    #COPY_REPORT_DIR = os.path.join(HOME_DIR, ".wapiti", "generated_report")
+    REPORT_DIR = "report"
+    HOME_DIR = os.getenv("HOME") or os.getenv("USERPROFILE")
+    COPY_REPORT_DIR = os.path.join(HOME_DIR, ".wapiti", "generated_report")
     
     def __init__(self, root_url):
         
@@ -68,6 +68,7 @@ class AttackModule():
                 md5(root_url.encode(errors="replace")).hexdigest()[:8]
             )
         )
+        
         self.persister = SqlitePersister(self._history_file)
         self.color = 0
         self.verbose = 0
@@ -78,8 +79,8 @@ class AttackModule():
         self._max_depth = 40
         self._max_links_per_page = -1
         self._max_files_per_dir = 0
-        self._scan_force = "normal"
-        self._max_scan_time = 0
+        self._scan_force = "paranoid"
+        self._max_scan_time = 20
         self._bug_report = True
 
         self.report_gen = None
@@ -105,7 +106,7 @@ class AttackModule():
         explorer.max_files_per_dir = self._max_files_per_dir
         explorer.max_requests_per_depth = self._max_links_per_page
         explorer.forbidden_parameters = self._bad_params
-        explorer.qs_limit = 1 #SCAN_FORCE_VALUES[self._scan_force]
+        explorer.qs_limit = 100 #SCAN_FORCE_VALUES[self._scan_force]
         explorer.verbose = (self.verbose > 0)
         explorer.load_saved_state(self.persister.output_file[:-2] + "pkl")
 

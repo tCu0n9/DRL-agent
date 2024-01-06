@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+
+        
+        {
+            "name": "Python: train_A2C.py",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/train_A2C.py",
+            "args": [
+                "-u",
+                "https://public-firing-range.appspot.com/",
+                "-t",
+                "2000"
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}

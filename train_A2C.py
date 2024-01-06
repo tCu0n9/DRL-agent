@@ -1,3 +1,7 @@
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
+warnings.filterwarnings('ignore', r'All-NaN (slice|axis) encountered')
+
 import sys
 import getopt
 import time
@@ -11,9 +15,6 @@ from stable_baselines3.a2c.policies import MlpPolicy, CnnPolicy
 from stable_baselines import A2C
 from stable_baselines.common import make_vec_env
 import torch as th
-# remove tensorflow warning messages
-import warnings
-warnings.simplefilter(action='ignore', category=FutureWarning)
 import tensorflow as tf
 tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 
@@ -36,11 +37,12 @@ def main(argv):
     start_url = ""
     test_suite_name = ""
     timesteps = 4000000
+    option = ''
 
     try:
-        opts, etc_args= getopt.getopt(argv[1:], "o:t:")
+        opts, etc_args= getopt.getopt(argv[1:], "u:t:")
     except getopt.GetoptError:
-        print("Use option -o")
+        print("Use option -u")
         sys.exit(2)
     
     for opt,arg in opts:

@@ -39,7 +39,7 @@ class ReflectedXSSEnv(gym.Env):
         self.f2 = open("vul_detection", 'w')
         #self.f2 = None
         #self.f3 = open("cdf","w")
-        self.block_list_file = open("url_block_list.txt","r")
+        self.block_list_file = open("gym_reflected_xss//envs//url_block_list.txt","r")
         print(start_url)
         self.root_url = start_url
         self.attack_module = AttackModule(self.root_url)
@@ -230,7 +230,7 @@ class ReflectedXSSEnv(gym.Env):
         def Extract(lst):
             return [item[0] for item in lst]
         
-        def choiceFromRequestList():
+        def choiceFromRequestList():   
             
             if self.mode != 1 :
                 self.request_list_index = self.request_list_index + 1
@@ -250,7 +250,7 @@ class ReflectedXSSEnv(gym.Env):
                     self.request_list = list(filter(lambda a: ((a.url.split("?")[0] != self.current_original_request.url.split("?")[0]) or (Extract(a.get_params) != Extract(self.current_original_request.get_params) and Extract(a.post_params) != Extract(self.current_original_request.get_params))) ,self.request_list))
                 
             currentRequest = self.request_list[self.request_list_index]
-            #print(currentRequest)
+            print(f"currentRequest: {currentRequest}")
             return currentRequest
 
 

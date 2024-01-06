@@ -1,3 +1,10 @@
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+warnings.filterwarnings("ignore", category=UserWarning)
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+import tensorflow as tf
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR) 
+
 import sys
 import getopt
 import gym
@@ -8,12 +15,6 @@ import gym_reflected_xss
 from stable_baselines.common.vec_env import DummyVecEnv
 from stable_baselines.deepq.policies import MlpPolicy
 from stable_baselines import DQN, A2C
-
-# remove tensorflow warning messages
-import warnings
-warnings.simplefilter(action='ignore', category=FutureWarning)
-import tensorflow as tf
-tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 
 def callback(lcl, glb):
     # stop training if reward exceeds 199 
@@ -27,9 +28,9 @@ def main(argv):
     option = 0
     
     try:
-        opts, etc_args= getopt.getopt(argv[1:], "u:n")
+        opts, etc_args= getopt.getopt(argv[1:], "u:n:")
     except getopt.GetoptError:
-        print("Use option -o")
+        print("Use option -u")
         sys.exit(2)
     
     for opt,arg in opts:

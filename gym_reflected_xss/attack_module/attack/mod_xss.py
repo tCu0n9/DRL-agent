@@ -85,7 +85,11 @@ class mod_xss(Attack):
         options.add_argument('--no-sandbox')  
         options.add_argument('--disable-dev-shm-usage') 
         
-        self.driver = webdriver.Chrome(executable_path="/home/soyounglee/projects/gym-reflected-xss/chromedriver",options=options)
+        options = webdriver.ChromeOptions()
+
+        chrome_driver_path = "gym_reflected_xss/chromedriver/chromedriver.exe"
+        chrome_service = webdriver.ChromeService(chrome_driver_path)
+        driver = webdriver.Chrome(service=chrome_service, options=options)
         
     
 

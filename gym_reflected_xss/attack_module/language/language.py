@@ -27,6 +27,7 @@ import locale
 import gettext
 import sys
 
+
 AVAILABLE_LANGS = ["en", "es", "fr", "pt", "zh"]  # "de", "ms"]
 
 if sys.platform == "win32":
@@ -56,7 +57,7 @@ elif lang not in AVAILABLE_LANGS:
     print("===============================================================")
     lang = "en"
 
-BASE_DIR = os.path.dirname(sys.modules["wapitiCore"].__file__)
+BASE_DIR = os.path.dirname(sys.modules["wapiti3"].__file__)
 LANG_PATH = os.path.join(BASE_DIR, "config", "language")
 
 lan = gettext.translation(
