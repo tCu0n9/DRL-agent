@@ -112,7 +112,7 @@ class ReflectedXSSEnv(gym.Env):
         try:
             if start_url.startswith(("http://", "https://")):
                 if start_url == "https://localhost:8443/benchmark/":
-                    url_file = open("burp-owasp-urls.txt")
+                    url_file = open("gym_reflected_xss/envs/burp-owasp-urls.txt")
                     while True:
                         line = url_file.readline().replace("\n", '').replace(" ", '')
                         print(line)
